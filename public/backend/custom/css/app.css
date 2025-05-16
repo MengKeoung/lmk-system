@@ -1,0 +1,149 @@
+
+:root{
+    --global-primary: #d0803d;
+    --global-secondary: #2b3590;
+}
+body {
+    font-family: 'Open Sans', 'Roboto', 'Kantumruy Pro', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.sidebar-light-info .nav-sidebar>.nav-item>.nav-link.active{
+    background-color: #28914A !important;
+}
+
+.swal2-popup.swal2-toast.swal2-show {
+    justify-content: flex-start;
+}
+table tbody td {
+    vertical-align: middle !important;
+}
+
+img.profile_img_table {
+    height: 50px;
+}
+.swal2-actions {
+    gap: 6px;
+}
+.text-sm .select2-container--default .select2-selection--single, select.form-control-sm~.select2-container--default .select2-selection--single {
+    height: 38px;
+}
+.text-sm .select2-container--default .select2-selection--single .select2-selection__rendered, select.form-control-sm~.select2-container--default .select2-selection--single .select2-selection__rendered {
+    margin-top: -3px;
+}
+.text-sm .select2-container--default .select2-selection--single .select2-selection__arrow, select.form-control-sm~.select2-container--default .select2-selection--single .select2-selection__arrow {
+    top: 1px;
+}
+.preview-multiple img {
+    padding: 10px;
+    height: 150px;
+}
+.preview-multiple img,
+.preview-multiple .img_container img {
+    padding: 10px;
+    height: 150px;
+}
+.preview-multiple .img_container {
+    display: inline-block;
+    position: relative;
+}
+.preview-multiple .img_container i {
+    position: absolute;
+    background-color: #ebebeb;
+    top: 3px;
+    right: 3px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+.preview-multiple .img_container i:hover {
+    color: #ebebeb;
+    background-color: #858585;
+}
+
+.custom-file-label {
+    white-space: nowrap;
+}
+[class*=sidebar-light-] .nav-treeview>.nav-item>.nav-link {
+    padding-left: 24px;
+}
+.preview-multiple img {
+    padding: 10px;
+    height: 150px;
+}
+.preview-multiple img,
+.preview-multiple .img_container img {
+    padding: 10px;
+    height: 150px;
+}
+.preview-multiple .img_container {
+    display: inline-block;
+    position: relative;
+}
+.preview-multiple .img_container i {
+    position: absolute;
+    background-color: #ebebeb;
+    top: 3px;
+    right: 3px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+.preview-multiple .img_container i:hover {
+    color: #ebebeb;
+    background-color: #858585;
+}
+.sidebar-light-primary .nav-sidebar>.nav-item>.nav-link.active {
+    position: relative;
+    background-color: transparent !important;
+    color: var(--global-primary);
+
+}
+/* .sidebar-light-primary .nav-sidebar>.nav-item>.nav-link.active svg {
+    fill: var(--global-primary);
+
+} */
+.sidebar-light-primary .nav-sidebar>.nav-item>.nav-link.active::before {
+    content: '';
+    height: 80%;
+    width: 2px;
+    top: 3.2px;
+    left: 7px;
+    background-color: var(--global-primary);
+    position: absolute;
+}
+.sidebar-light-primary .nav-sidebar>.nav-item>.nav-link.active {
+    /* box-shadow: 3px 3px #00ffba;
+    border: 0.3px solid #00ffba; */
+    /* transform: translate(-3px, -3px); */
+    background-color: #d07f3d17 !important;
+    /* outline: 1px solid #b78c67b3; */
+}
+[class*=sidebar-light-] .nav-treeview>.nav-item>.nav-link.active, [class*=sidebar-light-] .nav-treeview>.nav-item>.nav-link.active:hover {
+    background-color: unset;
+    color: var(--global-primary);
+}
+[class*=sidebar-light-] .nav-treeview>.nav-item>.nav-link:hover {
+    background-color: unset;
+    color: var(--global-primary);
+}
+[class*=sidebar-light-] .nav-item>.nav-link svg, [class*=sidebar-light-] .nav-item>.nav-link svg * {
+    stroke: currentColor;
+    /* stroke: white; */
+}
+[class*=sidebar-light-] .nav-item>.nav-link svg {
+    margin-right: 6px;
+    scale: 0.7;
+}
+[class*=sidebar-light-] .nav-sidebar>.nav-item>.nav-link.active{
+    box-shadow: none;
+}

@@ -1,0 +1,99 @@
+
+.swiper {
+ width: 100%;
+ max-width: 2227px; /* Maximum width */
+ height: auto; /* Height adjusts based on aspect ratio */
+ aspect-ratio: 2227 / 742; /* Maintain aspect ratio */
+ margin: 0 auto; /* Center the slider */
+}
+
+/* Ensure images fill the slide */
+.swiper-slide img {
+ width: 100%;
+ height: 100%;
+ object-fit: cover; /* Crop the image to fit */
+}
+
+/* Optional: Add padding or margins for smaller screens */
+@media (max-width: 768px) {
+ .swiper {
+     max-width: 100%; /* Allow full width on smaller screens */
+ }
+}
+
+
+
+
+/* slider and navabar */
+
+@media (max-width: 768px) {
+    .web-banner-logo-container {
+        max-height: 400px; /* Adjust the height for smaller screens */
+    }
+}
+
+
+
+.navbar-nav .nav-link {
+color: rgb(236, 0, 0) !important;
+}
+
+.image-container {
+display: flex;
+justify-content: center;
+align-items: center;
+
+}
+
+.image-container img {
+max-width: 100%;
+height: auto;
+}
+.navbar {
+
+box-shadow: 0 4px 6px rgba(4, 3, 3, 0.1); /* Subtle shadow */
+font-size: 1.25rem; /* Adjusted font size */
+height: 80px; /* Adjusted height */
+width: 100%; /* Full width */
+padding: 1rem; /* Added padding */
+}
+
+.navbar-brand {
+font-size: 2rem; /* Adjusted brand font size */
+font-weight: 700; /* Bold font */
+color: #c57171 !important; /* Dark color */
+}
+
+.navbar-nav .nav-link {
+color: #ffffff !important; /* Dark color */
+padding: 0.75rem 1rem; /* Increased padding */
+font-weight: 600; /* Semi-bold font */
+letter-spacing: 0.05rem; /* Added letter spacing */
+}
+
+.navbar-nav .nav-link:hover {
+color: #e3e9e8 !important; /* Dark color on hover */
+letter-spacing: 0.1rem; /* Increased letter spacing on hover */
+}
+
+.dropdown-menu {
+font-size: 1.5rem; /* Increased dropdown font size */
+padding: 1.5rem; /* Increased padding */
+border-radius: 0.5rem; /* Rounded corners */
+}
+
+.dropdown-item {
+font-size: 1.5rem; /* Increased dropdown item font size */
+padding: 1rem 1.5rem; /* Increased padding */
+font-weight: 400; /* Regular font weight */
+letter-spacing: 0.05rem; /* Added letter spacing */
+}
+
+.dropdown-item:hover {
+background-color: #e2e2e2 !important; /* Light background color on hover */
+letter-spacing: 0.1rem; /* Increased letter spacing on hover */
+}
+
+.flaticon-shopping-basket {
+color: white; /* Change this to your desired color */
+}
