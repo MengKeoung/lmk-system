@@ -48,8 +48,8 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Dicount</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Discount</h1>
+                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form action="" method="post" enctype="multipart/form-data" id="form-discount">
                     <div class="modal-body">
@@ -67,7 +67,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="button" type="submit" id="submitButton" class="btn btn-primary">Save</button>
                     </div>
                 </form>
@@ -79,7 +79,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Payment Type</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="row">
@@ -167,7 +167,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-primary" onclick="savePayments()">Save</button>
                 </div>
             </div>
@@ -178,40 +178,44 @@
     <div class="container-fluid">
         <footer class="footer position-fixed bottom-0 w-100">
             <div class="row">
-                <div class="col-6">
-                    <table class="table table-bordered">
+                 <div class="col-5">
+                    <table class="table">
                         <tbody>
                             <tr>
-                                <td class="text-end fw-bold w-2/3">Count :</td>
-                                <td class="text-end w-1/3" id="total_qty">0.00</td>
+                                <td class="text-start fw-bold" style="width: 66%; font-size: 0.80rem;">Count :</td>
+                                <td class="text-end" style="width: 34%; font-size: 0.80rem;" id="total_qty">0.00</td>
                             </tr>
                             <tr>
-                                <td class="text-end fw-bold w-2/3">Discount :</td>
-                                <td class="text-end w-1/3" id="total_discount">0.00</td>
+                                <td class="text-start fw-bold" style="width: 66%; font-size: 0.80rem;">Discount :</td>
+                                <td class="text-end" style="width: 34%; font-size: 0.80rem;" id="total_discount">0.00
+                                </td>
                                 <input type="hidden" id="discount_value">
                             </tr>
                             <tr>
-                                <td class="text-end fw-bold w-2/3">SubTotal :</td>
-                                <td class="text-end w-1/3" id="total_subtotal">0.00</td>
-                                <input type="hidden" name="" id="sub_total">
+                                <td class="text-start fw-bold" style="width: 66%; font-size: 0.80rem;">SubTotal :</td>
+                                <td class="text-end" style="width: 34%; font-size: 0.80rem;" id="total_subtotal">0.00
+                                </td>
+                                <input type="hidden" id="sub_total">
                             </tr>
                             <tr>
-                                <td class="text-end fw-bold w-2/3">GrandTotal :</td>
-                                <td class="text-end w-1/3" id="total">0.00</td>
+                                <td class="text-start fw-bold" style="width: 66%; font-size: 0.80rem;">GrandTotal :
+                                </td>
+                                <td class="text-end" style="width: 34%; font-size: 0.80rem;" id="total">0.00</td>
                             </tr>
                             <tr>
-                                <td class="text-end fw-bold w-2/3">Total KHR :</td>
-                                <td class="text-end w-1/3" id="total_khr">0.00</td>
+                                <td class="text-start fw-bold" style="width: 66%; font-size: 0.80rem;">Total KHR :
+                                </td>
+                                <td class="text-end" style="width: 34%; font-size: 0.80rem;" id="total_khr">0.00</td>
                                 <input type="hidden" id="exchange_rate" value="1">
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                <div class="col-6">
+                <div class="col-7">
                     <div class="row position-absolute bottom-0 w-100 mr-2">
                         <div class="col-lg-3 col-6">
-                            <button class="small-box bg-warning text-white" data-bs-toggle="modal"
-                                data-bs-target="#modalDiscount"
+                            <button class="small-box bg-warning text-white" data-toggle="modal"
+                                data-target="#modalDiscount"
                                 style="border: none; width: 100%; padding: 3px; cursor: pointer;">
                                 <div class="inner">
                                     <i class="fas fa-tag " style="font-size: 1.5rem;"></i>
@@ -222,7 +226,7 @@
                         <div class="col-lg-3 col-6">
                             <button class="small-box bg-info"
                                 style="border: none; width: 100%; padding:  3px; cursor: pointer;"
-                                data-bs-toggle="modal" data-bs-target="#paymentType">
+                                data-toggle="modal" data-target="#paymentType">
                                 <div class="inner">
                                     <i class="fas fa-credit-card" style="font-size: 1.5rem;;"></i>
                                     <p>Payment Type</p>
@@ -253,10 +257,9 @@
         </footer>
     </div>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- jQuery CDN -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <script>
+    
+    @push('js')
+        <script>
         const outputElement = document.getElementById('output');
 
         document.addEventListener('keydown', function(event) {
@@ -367,55 +370,58 @@
         }
 
         $(document).ready(function() {
-            // Calculate Total Subtotal
-            calculateTotalSubtotal();
+    // Calculate Total Subtotal
+    calculateTotalSubtotal();
 
-            // When clicking on submit button in the modal
-            $('#submitButton').on('click', function(event) {
-                event.preventDefault();
+    // When clicking on submit button in the modal
+    $('#submitButton').on('click', function(event) {
+        event.preventDefault();
 
-                // Get Discount Values
-                const discountPercentage = parseFloat($('#discount_percentage').val()) || 0;
-                const discountAmount = parseFloat($('#discount_amount').val()) || 0;
+        // Get Discount Values
+        const discountPercentage = parseFloat($('#discount_percentage').val()) || 0;
+        const discountAmount = parseFloat($('#discount_amount').val()) || 0;
 
-                // Get SubTotal Value
-                const subTotal = parseFloat($('#sub_total').val()) || 0;
+        // Get SubTotal Value
+        const subTotal = parseFloat($('#sub_total').val()) || 0;
 
-                let total = subTotal;
+        let total = subTotal;
 
-                // Apply Discount Percentage
-                if (discountPercentage > 0) {
-                    const discount = (subTotal * discountPercentage) / 100;
-                    total = subTotal - discount;
-                    $('#total').text(total.toFixed(2));
-                    $('#total_discount').text(discount.toFixed(2));
-                    $('#discount_value').val(discount);
-                    $('#totalusd').text(total.toFixed(2));
-                    console.log('Discount Applied (Percentage):', total); // Log for debugging
-                }
-                // Apply Discount Amount
-                else if (discountAmount > 0) {
-                    total = subTotal - discountAmount;
-                    $('#total').text(total.toFixed(2));
-                    $('#total_discount').text(discountAmount.toFixed(2));
-                    $('#discount_value').val(discountAmount);
-                    $('#totalusd').text(total.toFixed(2));
-                    console.log('Discount Applied (Amount):', total); // Log for debugging
-                } else {
-                    $('#total_discount').text(0);
-                    $('#total').text(subTotal.toFixed(2));
-                    $('#totalusd').text(subTotal.toFixed(2));
-                }
+        // Apply Discount Percentage
+        if (discountPercentage > 0) {
+            const discount = (subTotal * discountPercentage) / 100;
+            total = subTotal - discount;
+            $('#total').text(total.toFixed(2));
+            $('#total_discount').text(discount.toFixed(2));
+            $('#discount_value').val(discount);
+            $('#totalusd').text(total.toFixed(2));
+            console.log('Discount Applied (Percentage):', total); // Log for debugging
+        }
+        // Apply Discount Amount
+        else if (discountAmount > 0) {
+            total = subTotal - discountAmount;
+            $('#total').text(total.toFixed(2));
+            $('#total_discount').text(discountAmount.toFixed(2));
+            $('#discount_value').val(discountAmount);
+            $('#totalusd').text(total.toFixed(2));
+            console.log('Discount Applied (Amount):', total); // Log for debugging
+        } else {
+            $('#total_discount').text(0);
+            $('#total').text(subTotal.toFixed(2));
+            $('#totalusd').text(subTotal.toFixed(2));
+        }
 
-                // Calculate Total KHR
-                const totalKhr = total * exchangeRate;
-                $('#total_khr').text(totalKhr.toFixed(2));
-                $('#totalriel').text(totalKhr.toFixed(2));
+        // Calculate Total KHR
+        const totalKhr = total * exchangeRate;
+        $('#total_khr').text(totalKhr.toFixed(2));
+        $('#totalriel').text(totalKhr.toFixed(2));
 
-                console.log('Total KHR:', totalKhr); // Log for debugging
+        console.log('Total KHR:', totalKhr); // Log for debugging
 
-                // Close the Discount Modal
-                $('#modalDiscount').modal('hide');
-            });
-        });
+        // Close the Discount Modal
+        $('#modalDiscount').modal('hide');
+    });
+});
+
     </script>
+
+    @endpush

@@ -320,10 +320,10 @@
                                         <h3 class="card-title">{{ __('Exchange Rate') }}</h3>
                                     </div>
                                     <div class="col-sm-6">
-                                        <button type="button" class="btn btn-primary float-right mb-3"
+                                        {{-- <button type="button" class="btn btn-primary float-right mb-3"
                                             data-toggle="modal" data-target="#createExchangeRateModal">
                                             <i class="fa fa-plus-circle"></i> {{ __('Add New') }}
-                                        </button>
+                                        </button> --}}
                                     </div>
                                 </div>
                             </div>

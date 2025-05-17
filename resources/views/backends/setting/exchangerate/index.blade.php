@@ -1,10 +1,10 @@
     @include('backends.setting.exchangerate.table')
 
-    <div class="modal fade" id="createExchangeRateModal" tabindex="-1" role="dialog" aria-labelledby="createExchangeRateModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="createExchangeRateModal" tabindex="-1" role="dialog"
+        aria-labelledby="createExchangeRateModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <form action="{{ route('admin.currencies.store') }}" method="POST">
+                <form action="{{ route('admin.exchangerates.store') }}" method="POST">
                     @csrf
                     <div class="modal-header">
                         <h5 class="modal-title" id="createExchangeRateModalLabel">{{ __('Add New Exchange Rate') }}</h5>
@@ -15,14 +15,59 @@
 
                     <div class="modal-body">
                         <div class="form-group">
-                            <label for="name">{{ __('Name') }}</label>
-                            <input type="text" class="form-control" name="name" required>
+                            <label class="required_lable">{{ __('Base Currency') }}</label>
+                            <select name="base_currency"
+                                class="form-control select2 @error('base_currency') is-invalid @enderror"
+                                id="base_currency">
+                                <option value="">{{ __('Select Currency') }}</option>
+                                @foreach ($currencies as $currency)
+                                    <option value="{{ $currency->id }}"
+                                        {{ old('base_currency') == $currency->id ? 'selected' : '' }}>
+                                        {{ $currency->name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            @error('base_currency')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
 
                         <div class="form-group">
-                            <label for="symbol">{{ __('Symbol') }}</label>
-                            <textarea class="form-control" name="symbol"></textarea>
+                            <label class="required_lable">{{ __('Target Currency') }}</label>
+                            <select name="target_currency"
+                                class="form-control select2 @error('target_currency') is-invalid @enderror"
+                                id="target_currency">
+                                <option value="">{{ __('Select Currency') }}</option>
+                                @foreach ($currencies as $currency)
+                                    <option value="{{ $currency->id }}"
+                                        {{ old('target_currency') == $currency->id ? 'selected' : '' }}>
+                                        {{ $currency->name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            @error('target_currency')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
+
+                        <div class="form-group">
+                            <label class="required_lable" for="rate">{{ __('Rate') }}</label>
+                            <input type="number" step="any" class="form-control" name="rate" required>
+                            <small class="form-text text-muted">
+                                {{ __('The rate you enter should match the current official rate published on the ABA bank today.') }}
+                            </small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="rate_date">{{ __('Rate Date') }}</label>
+                            <input type="date" class="form-control" name="rate_date" required
+                                value="{{ date('Y-m-d') }}" readonly>
+                        </div>
+
                     </div>
 
                     <div class="modal-footer">

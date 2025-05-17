@@ -1,50 +1,52 @@
 <div class="card-body p-0 table-wrapper">
-    <table class="table">
+    <table class="table table-striped table-hover" id="exchangeRates">
         <thead>
             <tr>
                 <th>{{ __('#') }}</th>
-                <th>{{ __('Name') }}</th>
-                <th>{{ __('From Currency') }}</th>
-                <th>{{ __('To Currency') }}</th>
+                <th>{{ __('Base Currency') }}</th>
+                <th>{{ __('Target Currency') }}</th>
+                <th>{{ __('Rate') }}</th>
+                <th>{{ __('Rate Date') }}</th>
+                <th>{{ __('Updated At') }}</th>
                 <th>{{ __('Action') }}</th>
             </tr>
         </thead>
-        @foreach ($currencies as $currency)
-            <tr>
-                <td>{{ $loop->iteration }}</td>
-                <td>{{ $currency->name }}</td>
-                <td>{{ $currency->symbol }}</td>
-                <td>
-                    <button type="button" class="btn btn-info btn-sm btn-edit-currency" data-toggle="modal"
-                        data-target="#editCurrencyModal" data-id="{{ $currency->id }}" data-name="{{ $currency->name }}"
-                        data-symbol="{{ $currency->symbol }}">
-                        <i class="fas fa-pencil-alt"></i> {{ __('Edit') }}
-                    </button>
+        <tbody>
+            @forelse ($exchangerates as $rate)
+                <tr>
+                    <td>{{ $exchangerates->firstItem() + $loop->index }}</td>
+                    <td>{{ $rate->baseCurrency->name ?? $rate->base_currency }}</td>
+                    <td>{{ $rate->targetCurrency->name ?? $rate->target_currency }}</td>
 
-                    <form action="{{ route('admin.currencies.destroy', $currency->id) }}"
-                        class="d-inline-block form-delete-{{ $currency->id }}">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" data-id="{{ $currency->id }}"
-                            data-href="{{ route('admin.currencies.destroy', $currency->id) }}"
-                            class="btn btn-danger btn-sm btn-delete">
-                            <i class="fa fa-trash-alt"></i>
-                            {{ __('Delete') }}
+                    <td>{{ $rate->rate }}</td>
+                    <td>{{ $rate->rate_date->format('Y-m-d') }}</td>
+                    <td>{{ $rate->updated_at->format('Y-m-d H:i:s') }}</td>
+                    <td>
+                        <button type="button" class="btn btn-info btn-sm btn-edit-rate" data-toggle="modal"
+                            data-target="#editRateModal" data-id="{{ $rate->id }}"
+                            data-base_currency="{{ $rate->base_currency }}"
+                            data-target_currency="{{ $rate->target_currency }}" data-rate="{{ $rate->rate }}"
+                            data-rate_date="{{ $rate->rate_date->format('Y-m-d') }}">
+                            <i class="fas fa-pencil-alt"></i> {{ __('Edit') }}
                         </button>
-                    </form>
-                </td>
-            </tr>
-        @endforeach
+                    </td>
+                </tr>
+            @empty
+                <tr>
+                    <td colspan="7" class="text-center">{{ __('No exchange rates found.') }}</td>
+                </tr>
+            @endforelse
+        </tbody>
     </table>
-    {{-- <div class="row">
-        <div class="col-12 d-flex flex-row flex-wrap">
-            <div class="row" style="width: -webkit-fill-available;">
-                <div class="col-12 col-sm-6 text-center text-sm-left pl-3" style="margin-block: 20px">
-                    {{ __('Showing') }} {{ $currencies->firstItem() }} {{ __('to') }} {{ $currencies->lastItem() }}
-                    {{ __('of') }} {{ $currencies->total() }} {{ __('entries') }}
-                </div>
-                <div class="col-12 col-sm-6 pagination-nav pr-3"> {{ $currencies->links() }}</div>
-            </div>
+
+    {{-- @if ($exchangeRates->hasPages())
+    <div class="row">
+        <div class="col-12 col-sm-6 text-center text-sm-left pt-2">
+            {{ __('Showing') }} {{ $exchangeRates->firstItem() }} {{ __('to') }} {{ $exchangeRates->lastItem() }} {{ __('of') }} {{ $exchangeRates->total() }} {{ __('entries') }}
         </div>
-    </div> --}}
+        <div class="col-12 col-sm-6 pagination-nav pr-3">
+            {{ $exchangeRates->links() }}
+        </div>
+    </div>
+    @endif --}}
 </div>

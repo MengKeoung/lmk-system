@@ -18,8 +18,9 @@ use App\Http\Controllers\Backends\SupplierController;
 use App\Http\Controllers\Backends\DashboardController;
 use App\Http\Controllers\Backends\FileManagerController;
 use App\Http\Controllers\Backends\PaymentTypeController;
+use App\Http\Controllers\Backends\ExchangeRateController;
 use App\Http\Controllers\Backends\BusinessSettingController;
-
+  use App\Services\CnbcScraperService;
 
 
 
@@ -103,9 +104,9 @@ Route::middleware(['auth', 'CheckUserLogin', 'SetSessionData'])->group(function 
         //all sale
         Route::resource('allsales', AllSaleController::class);
 
+        Route::get('/pos/search', [PosController::class, 'searchProduct'])->name('pos.search');
         Route::resource('pos', PosController::class);
-         Route::get('/pos/search', [PosController::class, 'searchProduct'])->name('pos.search');
-
+        
         //expense
         Route::resource('expenses', ExpenseController::class);
 
@@ -117,6 +118,14 @@ Route::middleware(['auth', 'CheckUserLogin', 'SetSessionData'])->group(function 
 
         //exchange rate
         Route::resource('exchangerates', ExchangeRateController::class);
+     
+
+Route::get('/test-scraper', function () {
+    $scraper = new CnbcScraperService();
+    $scraper->fetchAndStore();
+    return 'Scraper ran, check DB.';
+});
+
     });
 
 });

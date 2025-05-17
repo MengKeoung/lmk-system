@@ -35,4 +35,8 @@ class Kernel extends ConsoleKernel
     protected $routeMiddleware = [
         'customer.auth' => \App\Http\Middleware\CustomerAuthMiddleware::class,
     ];
+    protected $commands = [
+    \App\Console\Commands\UpdateExchangeRates::class,
+];
+
 }

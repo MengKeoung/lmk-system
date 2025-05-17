@@ -12,6 +12,7 @@ use App\Models\BusinessSetting;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Models\Currency;
+use App\Models\ExchangeRate;
 
 class BusinessSettingController extends Controller
 {
@@ -59,7 +60,9 @@ class BusinessSettingController extends Controller
         $measures = Measure::paginate(10);
         $paymenttypes = PaymentType::paginate(10);
         $currencies = Currency::paginate(10);
-        return view('backends.setting.index', $data, compact('measures', 'paymenttypes', 'currencies'));
+        $exchangerates = ExchangeRate::with(['baseCurrency', 'targetCurrency'])->paginate(10);
+        
+        return view('backends.setting.index', $data, compact('measures', 'paymenttypes', 'currencies', 'exchangerates'));
     }
 
     public function update (Request $request)
